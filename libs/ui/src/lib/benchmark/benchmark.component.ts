@@ -1,12 +1,12 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { ConfirmationDialogType } from '@ghostfolio/client/core/notification/confirmation-dialog/confirmation-dialog.type';
-import { NotificationService } from '@ghostfolio/client/core/notification/notification.service';
-import { getLocale, resolveMarketCondition } from '@ghostfolio/common/helper';
+import { ConfirmationDialogType } from '@cryptfolio/client/core/notification/confirmation-dialog/confirmation-dialog.type';
+import { NotificationService } from '@cryptfolio/client/core/notification/notification.service';
+import { getLocale, resolveMarketCondition } from '@cryptfolio/common/helper';
 import {
   AssetProfileIdentifier,
   Benchmark,
   User
-} from '@ghostfolio/common/interfaces';
+} from '@cryptfolio/common/interfaces';
 
 import { CommonModule } from '@angular/common';
 import {

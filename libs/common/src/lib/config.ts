@@ -2,14 +2,14 @@ import { AssetClass, AssetSubClass, DataSource, Type } from '@prisma/client';
 import { JobOptions, JobStatus } from 'bull';
 import ms from 'ms';
 
-export const ghostfolioPrefix = 'GF';
-export const ghostfolioScraperApiSymbolPrefix = `_${ghostfolioPrefix}_`;
-export const ghostfolioFearAndGreedIndexDataSourceCryptocurrencies =
+export const cryptfolioPrefix = 'GF';
+export const cryptfolioScraperApiSymbolPrefix = `_${cryptfolioPrefix}_`;
+export const cryptfolioFearAndGreedIndexDataSourceCryptocurrencies =
   DataSource.MANUAL;
-export const ghostfolioFearAndGreedIndexDataSourceStocks = DataSource.RAPID_API;
-export const ghostfolioFearAndGreedIndexSymbol = `${ghostfolioScraperApiSymbolPrefix}FEAR_AND_GREED_INDEX`;
-export const ghostfolioFearAndGreedIndexSymbolCryptocurrencies = `${ghostfolioPrefix}_FEAR_AND_GREED_INDEX_CRYPTOCURRENCIES`;
-export const ghostfolioFearAndGreedIndexSymbolStocks = `${ghostfolioPrefix}_FEAR_AND_GREED_INDEX_STOCKS`;
+export const cryptfolioFearAndGreedIndexDataSourceStocks = DataSource.RAPID_API;
+export const cryptfolioFearAndGreedIndexSymbol = `${cryptfolioScraperApiSymbolPrefix}FEAR_AND_GREED_INDEX`;
+export const cryptfolioFearAndGreedIndexSymbolCryptocurrencies = `${cryptfolioPrefix}_FEAR_AND_GREED_INDEX_CRYPTOCURRENCIES`;
+export const cryptfolioFearAndGreedIndexSymbolStocks = `${cryptfolioPrefix}_FEAR_AND_GREED_INDEX_STOCKS`;
 
 export const locale = 'en-US';
 
@@ -140,7 +140,7 @@ export const NUMERICAL_PRECISION_THRESHOLD_3_FIGURES = 100;
 export const NUMERICAL_PRECISION_THRESHOLD_5_FIGURES = 10000;
 export const NUMERICAL_PRECISION_THRESHOLD_6_FIGURES = 100000;
 
-export const PROPERTY_API_KEY_GHOSTFOLIO = 'API_KEY_GHOSTFOLIO';
+export const PROPERTY_API_KEY_CRYPTFOLIO = 'API_KEY_CRYPTFOLIO';
 export const PROPERTY_API_KEY_OPENROUTER = 'API_KEY_OPENROUTER';
 export const PROPERTY_BENCHMARKS = 'BENCHMARKS';
 export const PROPERTY_BETTER_UPTIME_MONITOR_ID = 'BETTER_UPTIME_MONITOR_ID';
@@ -148,8 +148,8 @@ export const PROPERTY_COUNTRIES_OF_SUBSCRIBERS = 'COUNTRIES_OF_SUBSCRIBERS';
 export const PROPERTY_COUPONS = 'COUPONS';
 export const PROPERTY_CURRENCIES = 'CURRENCIES';
 export const PROPERTY_DATA_SOURCE_MAPPING = 'DATA_SOURCE_MAPPING';
-export const PROPERTY_DATA_SOURCES_GHOSTFOLIO_DATA_PROVIDER_MAX_REQUESTS =
-  'DATA_SOURCES_GHOSTFOLIO_DATA_PROVIDER_MAX_REQUESTS';
+export const PROPERTY_DATA_SOURCES_CRYPTFOLIO_DATA_PROVIDER_MAX_REQUESTS =
+  'DATA_SOURCES_CRYPTFOLIO_DATA_PROVIDER_MAX_REQUESTS';
 export const PROPERTY_DEMO_ACCOUNT_ID = 'DEMO_ACCOUNT_ID';
 export const PROPERTY_DEMO_USER_ID = 'DEMO_USER_ID';
 export const PROPERTY_IS_DATA_GATHERING_ENABLED = 'IS_DATA_GATHERING_ENABLED';

@@ -68,7 +68,7 @@ model AccountBalance {
 model Analytics {
   activityCount                       Int      @default(0)
   country                             String?
-  dataProviderGhostfolioDailyRequests Int      @default(0)
+  dataProviderCryptfolioDailyRequests Int      @default(0)
   lastRequestAt                       DateTime @default(now())
   updatedAt                           DateTime @updatedAt
   user                                User     @relation(fields: [userId], onDelete: Cascade, references: [id])
@@ -319,7 +319,7 @@ enum DataSource {
   COINGECKO
   EOD_HISTORICAL_DATA
   FINANCIAL_MODELING_PREP
-  GHOSTFOLIO
+  CRYPTFOLIO
   GOOGLE_SHEETS
   MANUAL
   RAPID_API

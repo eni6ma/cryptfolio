@@ -1,5 +1,5 @@
-import { environment } from '@ghostfolio/api/environments/environment';
-import { ConfigurationService } from '@ghostfolio/api/services/configuration/configuration.service';
+import { environment } from '@cryptfolio/api/environments/environment';
+import { ConfigurationService } from '@cryptfolio/api/services/configuration/configuration.service';
 import {
   DataProviderInterface,
   GetAssetProfileParams,
@@ -7,15 +7,15 @@ import {
   GetHistoricalParams,
   GetQuotesParams,
   GetSearchParams
-} from '@ghostfolio/api/services/data-provider/interfaces/data-provider.interface';
-import { PropertyService } from '@ghostfolio/api/services/property/property.service';
+} from '@cryptfolio/api/services/data-provider/interfaces/data-provider.interface';
+import { PropertyService } from '@cryptfolio/api/services/property/property.service';
 import {
   HEADER_KEY_TOKEN,
-  PROPERTY_API_KEY_GHOSTFOLIO
-} from '@ghostfolio/common/config';
-import { DATE_FORMAT } from '@ghostfolio/common/helper';
+  PROPERTY_API_KEY_CRYPTFOLIO
+} from '@cryptfolio/common/config';
+import { DATE_FORMAT } from '@cryptfolio/common/helper';
 import {
-  DataProviderGhostfolioAssetProfileResponse,
+  DataProviderCryptfolioAssetProfileResponse,
   DataProviderHistoricalResponse,
   DataProviderInfo,
   DataProviderResponse,
@@ -23,7 +23,7 @@ import {
   HistoricalResponse,
   LookupResponse,
   QuotesResponse
-} from '@ghostfolio/common/interfaces';
+} from '@cryptfolio/common/interfaces';
 
 import { Injectable, Logger } from '@nestjs/common';
 import { DataSource, SymbolProfile } from '@prisma/client';
@@ -31,7 +31,7 @@ import { format } from 'date-fns';
 import { StatusCodes } from 'http-status-codes';
 
 @Injectable()
-export class GhostfolioService implements DataProviderInterface {
+export class CryptfolioService implements DataProviderInterface {
   private readonly URL = environment.production
     ? 'https://ghostfol.io/api'
     : `${this.configurationService.get('ROOT_URL')}/api`;
@@ -49,11 +49,11 @@ export class GhostfolioService implements DataProviderInterface {
     requestTimeout = this.configurationService.get('REQUEST_TIMEOUT'),
     symbol
   }: GetAssetProfileParams): Promise<Partial<SymbolProfile>> {
-    let assetProfile: DataProviderGhostfolioAssetProfileResponse;
+    let assetProfile: DataProviderCryptfolioAssetProfileResponse;
 
     try {
       const response = await fetch(
-        `${this.URL}/v1/data-providers/ghostfolio/asset-profile/${symbol}`,
+        `${this.URL}/v1/data-providers/cryptfolio/asset-profile/${symbol}`,
         {
           headers: await this.getRequestHeaders(),
           signal: AbortSignal.timeout(requestTimeout)
@@ -68,7 +68,7 @@ export class GhostfolioService implements DataProviderInterface {
       }
 
       assetProfile =
-        (await response.json()) as DataProviderGhostfolioAssetProfileResponse;
+        (await response.json()) as DataProviderCryptfolioAssetProfileResponse;
     } catch (error) {
       let message = error;
 
@@ -87,7 +87,7 @@ export class GhostfolioService implements DataProviderInterface {
           'RequestError: The API key is invalid. Please update it in the Settings section of the Admin Control panel.';
       }
 
-      Logger.error(message, 'GhostfolioService');
+      Logger.error(message, 'CryptfolioService');
     }
 
     return assetProfile;
@@ -95,9 +95,9 @@ export class GhostfolioService implements DataProviderInterface {
 
   public getDataProviderInfo(): DataProviderInfo {
     return {
-      dataSource: DataSource.GHOSTFOLIO,
+      dataSource: DataSource.CRYPTFOLIO,
       isPremium: true,
-      name: 'Ghostfolio',
+      name: 'Cryptfolio',
       url: 'https://ghostfol.io'
     };
   }
@@ -117,7 +117,7 @@ export class GhostfolioService implements DataProviderInterface {
 
     try {
       const response = await fetch(
-        `${this.URL}/v2/data-providers/ghostfolio/dividends/${symbol}?from=${format(from, DATE_FORMAT)}&granularity=${granularity}&to=${format(
+        `${this.URL}/v2/data-providers/cryptfolio/dividends/${symbol}?from=${format(from, DATE_FORMAT)}&granularity=${granularity}&to=${format(
           to,
           DATE_FORMAT
         )}`,
@@ -149,7 +149,7 @@ export class GhostfolioService implements DataProviderInterface {
           'RequestError: The API key is invalid. Please update it in the Settings section of the Admin Control panel.';
       }
 
-      Logger.error(message, 'GhostfolioService');
+      Logger.error(message, 'CryptfolioService');
     }
 
     return dividends;
@@ -166,7 +166,7 @@ export class GhostfolioService implements DataProviderInterface {
   }> {
     try {
       const response = await fetch(
-        `${this.URL}/v2/data-providers/ghostfolio/historical/${symbol}?from=${format(from, DATE_FORMAT)}&granularity=${granularity}&to=${format(
+        `${this.URL}/v2/data-providers/cryptfolio/historical/${symbol}?from=${format(from, DATE_FORMAT)}&granularity=${granularity}&to=${format(
           to,
           DATE_FORMAT
         )}`,
@@ -219,7 +219,7 @@ export class GhostfolioService implements DataProviderInterface {
   }
 
   public getName(): DataSource {
-    return DataSource.GHOSTFOLIO;
+    return DataSource.CRYPTFOLIO;
   }
 
   public async getQuotes({
@@ -236,7 +236,7 @@ export class GhostfolioService implements DataProviderInterface {
 
     try {
       const response = await fetch(
-        `${this.URL}/v2/data-providers/ghostfolio/quotes?symbols=${symbols.join(',')}`,
+        `${this.URL}/v2/data-providers/cryptfolio/quotes?symbols=${symbols.join(',')}`,
         {
           headers: await this.getRequestHeaders(),
           signal: AbortSignal.timeout(requestTimeout)
@@ -271,7 +271,7 @@ export class GhostfolioService implements DataProviderInterface {
           'RequestError: The API key is invalid. Please update it in the Settings section of the Admin Control panel.';
       }
 
-      Logger.error(message, 'GhostfolioService');
+      Logger.error(message, 'CryptfolioService');
     }
 
     return quotes;
@@ -289,7 +289,7 @@ export class GhostfolioService implements DataProviderInterface {
 
     try {
       const response = await fetch(
-        `${this.URL}/v2/data-providers/ghostfolio/lookup?query=${query}`,
+        `${this.URL}/v2/data-providers/cryptfolio/lookup?query=${query}`,
         {
           headers: await this.getRequestHeaders(),
           signal: AbortSignal.timeout(requestTimeout)
@@ -322,7 +322,7 @@ export class GhostfolioService implements DataProviderInterface {
           'RequestError: The API key is invalid. Please update it in the Settings section of the Admin Control panel.';
       }
 
-      Logger.error(message, 'GhostfolioService');
+      Logger.error(message, 'CryptfolioService');
     }
 
     return searchResult;
@@ -330,7 +330,7 @@ export class GhostfolioService implements DataProviderInterface {
 
   private async getRequestHeaders() {
     const apiKey = await this.propertyService.getByKey<string>(
-      PROPERTY_API_KEY_GHOSTFOLIO
+      PROPERTY_API_KEY_CRYPTFOLIO
     );
 
     return {

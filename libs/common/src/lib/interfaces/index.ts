@@ -50,8 +50,8 @@ import type { BenchmarkMarketDataDetailsResponse } from './responses/benchmark-m
 import type { BenchmarkResponse } from './responses/benchmark-response.interface';
 import type { CreateStripeCheckoutSessionResponse } from './responses/create-stripe-checkout-session-response.interface';
 import type { DataEnhancerHealthResponse } from './responses/data-enhancer-health-response.interface';
-import type { DataProviderGhostfolioAssetProfileResponse } from './responses/data-provider-ghostfolio-asset-profile-response.interface';
-import type { DataProviderGhostfolioStatusResponse } from './responses/data-provider-ghostfolio-status-response.interface';
+import type { DataProviderCryptfolioAssetProfileResponse } from './responses/data-provider-cryptfolio-asset-profile-response.interface';
+import type { DataProviderCryptfolioStatusResponse } from './responses/data-provider-cryptfolio-status-response.interface';
 import type { DataProviderHealthResponse } from './responses/data-provider-health-response.interface';
 import type {
   DataProviderResponse,
@@ -129,8 +129,8 @@ export {
   Coupon,
   CreateStripeCheckoutSessionResponse,
   DataEnhancerHealthResponse,
-  DataProviderGhostfolioAssetProfileResponse,
-  DataProviderGhostfolioStatusResponse,
+  DataProviderCryptfolioAssetProfileResponse,
+  DataProviderCryptfolioStatusResponse,
   DataProviderHealthResponse,
   DataProviderHistoricalResponse,
   DataProviderInfo,

@@ -22,9 +22,9 @@
       "type": "image/png"
     }
   ],
-  "name": "Ghostfolio",
+  "name": "Cryptfolio",
   "orientation": "portrait",
-  "short_name": "Ghostfolio",
+  "short_name": "Cryptfolio",
   "start_url": "/${languageCode}/",
   "theme_color": "#FFFFFF",
   "url": "${rootUrl}"

@@ -1,37 +1,37 @@
 <div align="center">
 
-[<img src="https://avatars.githubusercontent.com/u/82473144?s=200" width="100" alt="Ghostfolio logo">](https://ghostfol.io)
+[<img src="https://avatars.githubusercontent.com/u/82473144?s=200" width="100" alt="Cryptfolio logo">](https://ghostfol.io)
 
-# Ghostfolio
+# Cryptfolio
 
 **Open Source Wealth Management Software**
 
-[**Ghostfol.io**](https://ghostfol.io) | [**Live Demo**](https://ghostfol.io/en/demo) | [**Ghostfolio Premium**](https://ghostfol.io/en/pricing) | [**FAQ**](https://ghostfol.io/en/faq) |
-[**Blog**](https://ghostfol.io/en/blog) | [**LinkedIn**](https://www.linkedin.com/company/ghostfolio) | [**Slack**](https://join.slack.com/t/ghostfolio/shared_invite/zt-vsaan64h-F_I0fEo5M0P88lP9ibCxFg) | [**X**](https://x.com/ghostfolio_)
+[**Ghostfol.io**](https://ghostfol.io) | [**Live Demo**](https://ghostfol.io/en/demo) | [**Cryptfolio Premium**](https://ghostfol.io/en/pricing) | [**FAQ**](https://ghostfol.io/en/faq) |
+[**Blog**](https://ghostfol.io/en/blog) | [**LinkedIn**](https://www.linkedin.com/company/cryptfolio) | [**Slack**](https://join.slack.com/t/cryptfolio/shared_invite/zt-vsaan64h-F_I0fEo5M0P88lP9ibCxFg) | [**X**](https://x.com/cryptfolio_)
 
-[![Shield: Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-Support-yellow?logo=buymeacoffee)](https://www.buymeacoffee.com/ghostfolio)
-[![Shield: Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-limegreen.svg)](#contributing) [![Shield: Docker Pulls](https://img.shields.io/docker/pulls/ghostfolio/ghostfolio?label=Docker%20Pulls)](https://hub.docker.com/r/ghostfolio/ghostfolio)
+[![Shield: Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-Support-yellow?logo=buymeacoffee)](https://www.buymeacoffee.com/cryptfolio)
+[![Shield: Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-limegreen.svg)](#contributing) [![Shield: Docker Pulls](https://img.shields.io/docker/pulls/cryptfolio/cryptfolio?label=Docker%20Pulls)](https://hub.docker.com/r/cryptfolio/cryptfolio)
 [![Shield: License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-orange.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 </div>
 
-**Ghostfolio** is an open source wealth management software built with web technology. The application empowers busy people to keep track of stocks, ETFs or cryptocurrencies and make solid, data-driven investment decisions. The software is designed for personal use in continuous operation.
+**Cryptfolio** is an open source wealth management software built with web technology. The application empowers busy people to keep track of stocks, ETFs or cryptocurrencies and make solid, data-driven investment decisions. The software is designed for personal use in continuous operation.
 
 <div align="center">
 
-[<img src="./apps/client/src/assets/images/video-preview.jpg" width="600" alt="Preview image of the Ghostfolio video trailer">](https://www.youtube.com/watch?v=yY6ObSQVJZk)
+[<img src="./apps/client/src/assets/images/video-preview.jpg" width="600" alt="Preview image of the Cryptfolio video trailer">](https://www.youtube.com/watch?v=yY6ObSQVJZk)
 
 </div>
 
-## Ghostfolio Premium
+## Cryptfolio Premium
 
-Our official **[Ghostfolio Premium](https://ghostfol.io/en/pricing)** cloud offering is the easiest way to get started. Due to the time it saves, this will be the best option for most people. Revenue is used to cover operational costs for the hosting infrastructure and professional data providers, and to fund ongoing development.
+Our official **[Cryptfolio Premium](https://ghostfol.io/en/pricing)** cloud offering is the easiest way to get started. Due to the time it saves, this will be the best option for most people. Revenue is used to cover operational costs for the hosting infrastructure and professional data providers, and to fund ongoing development.
 
-If you prefer to run Ghostfolio on your own infrastructure, please find further instructions in the [Self-hosting](#self-hosting) section.
+If you prefer to run Cryptfolio on your own infrastructure, please find further instructions in the [Self-hosting](#self-hosting) section.
 
-## Why Ghostfolio?
+## Why Cryptfolio?
 
-Ghostfolio is for you if you are...
+Cryptfolio is for you if you are...
 
 - 💼 trading stocks, ETFs or cryptocurrencies on multiple platforms
 - 🏦 pursuing a buy & hold strategy
@@ -57,13 +57,13 @@ Ghostfolio is for you if you are...
 
 <div align="center">
 
-<img src="./apps/client/src/assets/images/screenshot.png" width="300" alt="Image of a phone showing the Ghostfolio app open">
+<img src="./apps/client/src/assets/images/screenshot.png" width="300" alt="Image of a phone showing the Cryptfolio app open">
 
 </div>
 
 ## Technology Stack
 
-Ghostfolio is a modern web application written in [TypeScript](https://www.typescriptlang.org) and organized as an [Nx](https://nx.dev) workspace.
+Cryptfolio is a modern web application written in [TypeScript](https://www.typescriptlang.org) and organized as an [Nx](https://nx.dev) workspace.
 
 ### Backend
 
@@ -75,11 +75,11 @@ The frontend is built with [Angular](https://angular.dev) and uses [Angular Mate
 
 ## Self-hosting
 
-We provide official container images hosted on [Docker Hub](https://hub.docker.com/r/ghostfolio/ghostfolio) for `linux/amd64`, `linux/arm/v7` and `linux/arm64`.
+We provide official container images hosted on [Docker Hub](https://hub.docker.com/r/cryptfolio/cryptfolio) for `linux/amd64`, `linux/arm/v7` and `linux/arm64`.
 
 <div align="center">
 
-[<img src="./apps/client/src/assets/images/button-buy-me-a-coffee.png" width="150" alt="Buy me a coffee button"/>](https://www.buymeacoffee.com/ghostfolio)
+[<img src="./apps/client/src/assets/images/button-buy-me-a-coffee.png" width="150" alt="Buy me a coffee button"/>](https://www.buymeacoffee.com/cryptfolio)
 
 </div>
 
@@ -91,10 +91,10 @@ We provide official container images hosted on [Docker Hub](https://hub.docker.c
 | `API_KEY_COINGECKO_DEMO` | `string` (optional)   |               | The _CoinGecko_ Demo API key                                                                                                        |
 | `API_KEY_COINGECKO_PRO`  | `string` (optional)   |               | The _CoinGecko_ Pro API key                                                                                                         |
 | `DATABASE_URL`           | `string`              |               | The database connection URL, e.g. `postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:5432/${POSTGRES_DB}?sslmode=prefer` |
-| `HOST`                   | `string` (optional)   | `0.0.0.0`     | The host where the Ghostfolio application will run on                                                                               |
+| `HOST`                   | `string` (optional)   | `0.0.0.0`     | The host where the Cryptfolio application will run on                                                                               |
 | `JWT_SECRET_KEY`         | `string`              |               | A random string used for _JSON Web Tokens_ (JWT)                                                                                    |
-| `LOG_LEVELS`             | `string[]` (optional) |               | The logging levels for the Ghostfolio application, e.g. `["debug","error","log","warn"]`                                            |
-| `PORT`                   | `number` (optional)   | `3333`        | The port where the Ghostfolio application will run on                                                                               |
+| `LOG_LEVELS`             | `string[]` (optional) |               | The logging levels for the Cryptfolio application, e.g. `["debug","error","log","warn"]`                                            |
+| `PORT`                   | `number` (optional)   | `3333`        | The port where the Cryptfolio application will run on                                                                               |
 | `POSTGRES_DB`            | `string`              |               | The name of the _PostgreSQL_ database                                                                                               |
 | `POSTGRES_PASSWORD`      | `string`              |               | The password of the _PostgreSQL_ database                                                                                           |
 | `POSTGRES_USER`          | `string`              |               | The user of the _PostgreSQL_ database                                                                                               |
@@ -115,7 +115,7 @@ We provide official container images hosted on [Docker Hub](https://hub.docker.c
 
 #### a. Run environment
 
-Run the following command to start the Docker images from [Docker Hub](https://hub.docker.com/r/ghostfolio/ghostfolio):
+Run the following command to start the Docker images from [Docker Hub](https://hub.docker.com/r/cryptfolio/cryptfolio):
 
 ```bash
 docker compose -f docker/docker-compose.yml up -d
@@ -137,9 +137,9 @@ docker compose -f docker/docker-compose.build.yml up -d
 
 #### Upgrade Version
 
-1. Update the _Ghostfolio_ Docker image
-   - Increase the version of the `ghostfolio/ghostfolio` Docker image in `docker/docker-compose.yml`
-   - Run the following command if `ghostfolio:latest` is set:
+1. Update the _Cryptfolio_ Docker image
+   - Increase the version of the `cryptfolio/cryptfolio` Docker image in `docker/docker-compose.yml`
+   - Run the following command if `cryptfolio:latest` is set:
      ```bash
      docker compose -f docker/docker-compose.yml pull
      ```
@@ -152,7 +152,7 @@ docker compose -f docker/docker-compose.build.yml up -d
 
 ### Home Server Systems (Community)
 
-Ghostfolio is available for various home server systems, including [CasaOS](https://github.com/bigbeartechworld/big-bear-casaos), [Home Assistant](https://github.com/lildude/ha-addon-ghostfolio), [Runtipi](https://www.runtipi.io/docs/apps-available), [TrueCharts](https://truecharts.org/charts/stable/ghostfolio), [Umbrel](https://apps.umbrel.com/app/ghostfolio), and [Unraid](https://unraid.net/community/apps?q=ghostfolio).
+Cryptfolio is available for various home server systems, including [CasaOS](https://github.com/bigbeartechworld/big-bear-casaos), [Home Assistant](https://github.com/lildude/ha-addon-cryptfolio), [Runtipi](https://www.runtipi.io/docs/apps-available), [TrueCharts](https://truecharts.org/charts/stable/cryptfolio), [Umbrel](https://apps.umbrel.com/app/cryptfolio), and [Unraid](https://unraid.net/community/apps?q=cryptfolio).
 
 ## Development
 
@@ -257,7 +257,7 @@ Deprecated: `GET http://localhost:3333/api/v1/auth/anonymous/<INSERT_SECURITY_TO
 
 #### Prerequisites
 
-Grant access of type _Public_ in the _Access_ tab of _My Ghostfolio_.
+Grant access of type _Public_ in the _Access_ tab of _My Cryptfolio_.
 
 #### Request
 
@@ -287,24 +287,24 @@ Grant access of type _Public_ in the _Access_ tab of _My Ghostfolio_.
 
 ## Community Projects
 
-Discover a variety of community projects for Ghostfolio: https://github.com/topics/ghostfolio
+Discover a variety of community projects for Cryptfolio: https://github.com/topics/cryptfolio
 
-Are you building your own project? Add the `ghostfolio` topic to your _GitHub_ repository to get listed as well. [Learn more →](https://docs.github.com/en/articles/classifying-your-repository-with-topics)
+Are you building your own project? Add the `cryptfolio` topic to your _GitHub_ repository to get listed as well. [Learn more →](https://docs.github.com/en/articles/classifying-your-repository-with-topics)
 
 ## Contributing
 
-Ghostfolio is **100% free** and **open source**. We encourage and support an active and healthy community that accepts contributions from the public - including you.
+Cryptfolio is **100% free** and **open source**. We encourage and support an active and healthy community that accepts contributions from the public - including you.
 
-Not sure what to work on? We have [some ideas](https://github.com/ghostfolio/ghostfolio/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22%20no%3Aassignee), even for [newcomers](https://github.com/ghostfolio/ghostfolio/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22%20no%3Aassignee). Please join the Ghostfolio [Slack](https://join.slack.com/t/ghostfolio/shared_invite/zt-vsaan64h-F_I0fEo5M0P88lP9ibCxFg) channel or post to [@ghostfolio\_](https://x.com/ghostfolio_) on _X_. We would love to hear from you.
+Not sure what to work on? We have [some ideas](https://github.com/cryptfolio/cryptfolio/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22%20no%3Aassignee), even for [newcomers](https://github.com/cryptfolio/cryptfolio/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22%20no%3Aassignee). Please join the Cryptfolio [Slack](https://join.slack.com/t/cryptfolio/shared_invite/zt-vsaan64h-F_I0fEo5M0P88lP9ibCxFg) channel or post to [@cryptfolio\_](https://x.com/cryptfolio_) on _X_. We would love to hear from you.
 
-If you like to support this project, become a [**Sponsor**](https://github.com/sponsors/ghostfolio), get [**Ghostfolio Premium**](https://ghostfol.io/en/pricing) or [**Buy me a coffee**](https://www.buymeacoffee.com/ghostfolio).
+If you like to support this project, become a [**Sponsor**](https://github.com/sponsors/cryptfolio), get [**Cryptfolio Premium**](https://ghostfol.io/en/pricing) or [**Buy me a coffee**](https://www.buymeacoffee.com/cryptfolio).
 
 ## Sponsors
 
 <div align="center">
   <p>
     Browser testing via<br />
-    <a href="https://www.lambdatest.com?utm_medium=sponsor&utm_source=ghostfolio" target="_blank" title="LambdaTest - AI Powered Testing Tool">
+    <a href="https://www.lambdatest.com?utm_medium=sponsor&utm_source=cryptfolio" target="_blank" title="LambdaTest - AI Powered Testing Tool">
       <img alt="LambdaTest Logo" height="45" width="250" src="https://www.lambdatest.com/blue-logo.png" />
     </a>
   </p>
@@ -316,6 +316,6 @@ If you like to support this project, become a [**Sponsor**](https://github.com/s
 
 ## License
 
-© 2021 - 2025 [Ghostfolio](https://ghostfol.io)
+© 2021 - 2025 [Cryptfolio](https://ghostfol.io)
 
 Licensed under the [AGPLv3 License](https://www.gnu.org/licenses/agpl-3.0.html).

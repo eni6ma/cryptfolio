@@ -1,5 +1,5 @@
-import { SubscriptionOffer, UserSettings } from '@ghostfolio/common/interfaces';
-import { SubscriptionType } from '@ghostfolio/common/types';
+import { SubscriptionOffer, UserSettings } from '@cryptfolio/common/interfaces';
+import { SubscriptionType } from '@cryptfolio/common/types';
 
 import { Access, Account, Settings, User } from '@prisma/client';
 
@@ -8,7 +8,7 @@ export type UserWithSettings = User & {
   accessesGet: Access[];
   accounts: Account[];
   activityCount: number;
-  dataProviderGhostfolioDailyRequests: number;
+  dataProviderCryptfolioDailyRequests: number;
   permissions?: string[];
   settings: Settings & { settings: UserSettings };
   subscription?: {

@@ -1,8 +1,8 @@
-name: ghostfolio
+name: cryptfolio
 services:
-  ghostfolio:
-    image: docker.io/ghostfolio/ghostfolio:latest
-    container_name: ghostfolio
+  cryptfolio:
+    image: docker.io/cryptfolio/cryptfolio:latest
+    container_name: cryptfolio
     restart: unless-stopped
     init: true
     cap_drop:

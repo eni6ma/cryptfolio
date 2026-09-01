@@ -1,4 +1,4 @@
 import { SymbolProfile } from '@prisma/client';
 
-export interface DataProviderGhostfolioAssetProfileResponse
+export interface DataProviderCryptfolioAssetProfileResponse
   extends Partial<SymbolProfile> {}

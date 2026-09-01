@@ -1,22 +1,22 @@
-import { ConfigurationService } from '@ghostfolio/api/services/configuration/configuration.service';
-import { DataProviderService } from '@ghostfolio/api/services/data-provider/data-provider.service';
-import { GhostfolioService as GhostfolioDataProviderService } from '@ghostfolio/api/services/data-provider/ghostfolio/ghostfolio.service';
+import { ConfigurationService } from '@cryptfolio/api/services/configuration/configuration.service';
+import { DataProviderService } from '@cryptfolio/api/services/data-provider/data-provider.service';
+import { CryptfolioService as CryptfolioDataProviderService } from '@cryptfolio/api/services/data-provider/cryptfolio/cryptfolio.service';
 import {
   GetAssetProfileParams,
   GetDividendsParams,
   GetHistoricalParams,
   GetQuotesParams,
   GetSearchParams
-} from '@ghostfolio/api/services/data-provider/interfaces/data-provider.interface';
-import { PrismaService } from '@ghostfolio/api/services/prisma/prisma.service';
-import { PropertyService } from '@ghostfolio/api/services/property/property.service';
+} from '@cryptfolio/api/services/data-provider/interfaces/data-provider.interface';
+import { PrismaService } from '@cryptfolio/api/services/prisma/prisma.service';
+import { PropertyService } from '@cryptfolio/api/services/property/property.service';
 import {
   DEFAULT_CURRENCY,
   DERIVED_CURRENCIES
-} from '@ghostfolio/common/config';
-import { PROPERTY_DATA_SOURCES_GHOSTFOLIO_DATA_PROVIDER_MAX_REQUESTS } from '@ghostfolio/common/config';
+} from '@cryptfolio/common/config';
+import { PROPERTY_DATA_SOURCES_CRYPTFOLIO_DATA_PROVIDER_MAX_REQUESTS } from '@cryptfolio/common/config';
 import {
-  DataProviderGhostfolioAssetProfileResponse,
+  DataProviderCryptfolioAssetProfileResponse,
   DataProviderHistoricalResponse,
   DataProviderInfo,
   DividendsResponse,
@@ -24,8 +24,8 @@ import {
   LookupItem,
   LookupResponse,
   QuotesResponse
-} from '@ghostfolio/common/interfaces';
-import { UserWithSettings } from '@ghostfolio/common/types';
+} from '@cryptfolio/common/interfaces';
+import { UserWithSettings } from '@cryptfolio/common/types';
 
 import { Injectable, Logger } from '@nestjs/common';
 import { DataSource, SymbolProfile } from '@prisma/client';
@@ -41,7 +41,7 @@ export class GhostfolioService {
   ) {}
 
   public async getAssetProfile({ symbol }: GetAssetProfileParams) {
-    let result: DataProviderGhostfolioAssetProfileResponse = {};
+    let result: DataProviderCryptfolioAssetProfileResponse = {};
 
     try {
       const promises: Promise<Partial<SymbolProfile>>[] = [];
@@ -57,7 +57,7 @@ export class GhostfolioService {
             ])
             .then(async (assetProfiles) => {
               const assetProfile = assetProfiles[symbol];
-              const dataSourceOrigin = DataSource.GHOSTFOLIO;
+              const dataSourceOrigin = DataSource.CRYPTFOLIO;
 
               if (assetProfile) {
                 await this.prismaService.assetProfileResolution.upsert({
@@ -190,7 +190,7 @@ export class GhostfolioService {
   public async getMaxDailyRequests() {
     return parseInt(
       (await this.propertyService.getByKey<string>(
-        PROPERTY_DATA_SOURCES_GHOSTFOLIO_DATA_PROVIDER_MAX_REQUESTS
+        PROPERTY_DATA_SOURCES_CRYPTFOLIO_DATA_PROVIDER_MAX_REQUESTS
       )) || '0',
       10
     );
@@ -277,7 +277,7 @@ export class GhostfolioService {
 
   public async getStatus({ user }: { user: UserWithSettings }) {
     return {
-      dailyRequests: user.dataProviderGhostfolioDailyRequests,
+      dailyRequests: user.dataProviderCryptfolioDailyRequests,
       dailyRequestsMax: await this.getMaxDailyRequests(),
       subscription: user.subscription
     };
@@ -286,7 +286,7 @@ export class GhostfolioService {
   public async incrementDailyRequests({ userId }: { userId: string }) {
     await this.prismaService.analytics.update({
       data: {
-        dataProviderGhostfolioDailyRequests: { increment: 1 }
+        dataProviderCryptfolioDailyRequests: { increment: 1 }
       },
       where: { userId }
     });
@@ -353,15 +353,15 @@ export class GhostfolioService {
   }
 
   private getDataProviderInfo(): DataProviderInfo {
-    const ghostfolioDataProviderService = new GhostfolioDataProviderService(
+    const cryptfolioDataProviderService = new CryptfolioDataProviderService(
       this.configurationService,
       this.propertyService
     );
 
     return {
-      ...ghostfolioDataProviderService.getDataProviderInfo(),
+      ...cryptfolioDataProviderService.getDataProviderInfo(),
       isPremium: false,
-      name: 'Ghostfolio Premium'
+      name: 'Cryptfolio Premium'
     };
   }
 

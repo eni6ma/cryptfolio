@@ -1,4 +1,4 @@
-import { UserWithSettings } from '@ghostfolio/common/types';
+import { UserWithSettings } from '@cryptfolio/common/types';
 
 import { Role } from '@prisma/client';
 
@@ -30,7 +30,7 @@ export const permissions = {
   deleteWatchlistItem: 'deleteWatchlistItem',
   enableAuthGoogle: 'enableAuthGoogle',
   enableAuthToken: 'enableAuthToken',
-  enableDataProviderGhostfolio: 'enableDataProviderGhostfolio',
+  enableDataProviderCryptfolio: 'enableDataProviderCryptfolio',
   enableFearAndGreedIndex: 'enableFearAndGreedIndex',
   enableImport: 'enableImport',
   enableBlog: 'enableBlog',

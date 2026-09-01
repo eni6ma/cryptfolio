@@ -1,4 +1,4 @@
-# Ghostfolio Development Guide
+# Cryptfolio Development Guide
 
 ## Development Environment
 
@@ -68,7 +68,7 @@ Use `@if (user?.settings?.isExperimentalFeatures) {}` in HTML template
 
 ## Component Library (_Storybook_)
 
-https://ghostfol.io/development/storybook
+https://cryptfol.io/development/storybook
 
 ## Git
 

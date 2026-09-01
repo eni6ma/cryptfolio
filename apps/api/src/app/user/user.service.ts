@@ -231,8 +231,8 @@ export class UserService {
       thirdPartyId,
       updatedAt,
       activityCount: analytics?.activityCount,
-      dataProviderGhostfolioDailyRequests:
-        analytics?.dataProviderGhostfolioDailyRequests
+      dataProviderCryptfolioDailyRequests:
+        analytics?.dataProviderCryptfolioDailyRequests
     };
 
     if (user?.settings) {
@@ -628,7 +628,7 @@ export class UserService {
   public async resetAnalytics() {
     return this.prismaService.analytics.updateMany({
       data: {
-        dataProviderGhostfolioDailyRequests: 0
+        dataProviderCryptfolioDailyRequests: 0
       },
       where: {
         updatedAt: {

@@ -1,11 +1,11 @@
-name: ghostfolio_build
+name: cryptfolio_build
 services:
-  ghostfolio:
+  cryptfolio:
     build: ../
-    image: ghostfolio/ghostfolio:local
+    image: cryptfolio/cryptfolio:local
     extends:
       file: docker-compose.yml
-      service: ghostfolio
+      service: cryptfolio
 
   postgres:
     container_name: gf-postgres-build

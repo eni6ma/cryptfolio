@@ -1,17 +1,17 @@
-import { HasPermission } from '@ghostfolio/api/decorators/has-permission.decorator';
-import { HasPermissionGuard } from '@ghostfolio/api/guards/has-permission.guard';
-import { AssetProfileInvalidError } from '@ghostfolio/api/services/data-provider/errors/asset-profile-invalid.error';
-import { parseDate } from '@ghostfolio/common/helper';
+import { HasPermission } from '@cryptfolio/api/decorators/has-permission.decorator';
+import { HasPermissionGuard } from '@cryptfolio/api/guards/has-permission.guard';
+import { AssetProfileInvalidError } from '@cryptfolio/api/services/data-provider/errors/asset-profile-invalid.error';
+import { parseDate } from '@cryptfolio/common/helper';
 import {
-  DataProviderGhostfolioAssetProfileResponse,
-  DataProviderGhostfolioStatusResponse,
+  DataProviderCryptfolioAssetProfileResponse,
+  DataProviderCryptfolioStatusResponse,
   DividendsResponse,
   HistoricalResponse,
   LookupResponse,
   QuotesResponse
-} from '@ghostfolio/common/interfaces';
-import { permissions } from '@ghostfolio/common/permissions';
-import { RequestWithUser } from '@ghostfolio/common/types';
+} from '@cryptfolio/common/interfaces';
+import { permissions } from '@cryptfolio/common/permissions';
+import { RequestWithUser } from '@cryptfolio/common/types';
 
 import {
   Controller,
@@ -31,25 +31,25 @@ import { getReasonPhrase, StatusCodes } from 'http-status-codes';
 import { GetDividendsDto } from './get-dividends.dto';
 import { GetHistoricalDto } from './get-historical.dto';
 import { GetQuotesDto } from './get-quotes.dto';
-import { GhostfolioService } from './ghostfolio.service';
+import { CryptfolioService } from './cryptfolio.service';
 
-@Controller('data-providers/ghostfolio')
-export class GhostfolioController {
+@Controller('data-providers/cryptfolio')
+export class CryptfolioController {
   public constructor(
-    private readonly ghostfolioService: GhostfolioService,
+    private readonly cryptfolioService: CryptfolioService,
     @Inject(REQUEST) private readonly request: RequestWithUser
   ) {}
 
   @Get('asset-profile/:symbol')
-  @HasPermission(permissions.enableDataProviderGhostfolio)
+  @HasPermission(permissions.enableDataProviderCryptfolio)
   @UseGuards(AuthGuard('api-key'), HasPermissionGuard)
   public async getAssetProfile(
     @Param('symbol') symbol: string
-  ): Promise<DataProviderGhostfolioAssetProfileResponse> {
-    const maxDailyRequests = await this.ghostfolioService.getMaxDailyRequests();
+  ): Promise<DataProviderCryptfolioAssetProfileResponse> {
+    const maxDailyRequests = await this.cryptfolioService.getMaxDailyRequests();
 
     if (
-      this.request.user.dataProviderGhostfolioDailyRequests > maxDailyRequests
+      this.request.user.dataProviderCryptfolioDailyRequests > maxDailyRequests
     ) {
       throw new HttpException(
         getReasonPhrase(StatusCodes.TOO_MANY_REQUESTS),
@@ -58,11 +58,11 @@ export class GhostfolioController {
     }
 
     try {
-      const assetProfile = await this.ghostfolioService.getAssetProfile({
+      const assetProfile = await this.cryptfolioService.getAssetProfile({
         symbol
       });
 
-      await this.ghostfolioService.incrementDailyRequests({
+      await this.cryptfolioService.incrementDailyRequests({
         userId: this.request.user.id
       });
 
@@ -83,17 +83,17 @@ export class GhostfolioController {
   }
 
   @Get('dividends/:symbol')
-  @HasPermission(permissions.enableDataProviderGhostfolio)
+  @HasPermission(permissions.enableDataProviderCryptfolio)
   @UseGuards(AuthGuard('api-key'), HasPermissionGuard)
   @Version('2')
   public async getDividends(
     @Param('symbol') symbol: string,
     @Query() query: GetDividendsDto
   ): Promise<DividendsResponse> {
-    const maxDailyRequests = await this.ghostfolioService.getMaxDailyRequests();
+    const maxDailyRequests = await this.cryptfolioService.getMaxDailyRequests();
 
     if (
-      this.request.user.dataProviderGhostfolioDailyRequests > maxDailyRequests
+      this.request.user.dataProviderCryptfolioDailyRequests > maxDailyRequests
     ) {
       throw new HttpException(
         getReasonPhrase(StatusCodes.TOO_MANY_REQUESTS),
@@ -102,14 +102,14 @@ export class GhostfolioController {
     }
 
     try {
-      const dividends = await this.ghostfolioService.getDividends({
+      const dividends = await this.cryptfolioService.getDividends({
         symbol,
         from: parseDate(query.from),
         granularity: query.granularity,
         to: parseDate(query.to)
       });
 
-      await this.ghostfolioService.incrementDailyRequests({
+      await this.cryptfolioService.incrementDailyRequests({
         userId: this.request.user.id
       });
 
@@ -123,17 +123,17 @@ export class GhostfolioController {
   }
 
   @Get('historical/:symbol')
-  @HasPermission(permissions.enableDataProviderGhostfolio)
+  @HasPermission(permissions.enableDataProviderCryptfolio)
   @UseGuards(AuthGuard('api-key'), HasPermissionGuard)
   @Version('2')
   public async getHistorical(
     @Param('symbol') symbol: string,
     @Query() query: GetHistoricalDto
   ): Promise<HistoricalResponse> {
-    const maxDailyRequests = await this.ghostfolioService.getMaxDailyRequests();
+    const maxDailyRequests = await this.cryptfolioService.getMaxDailyRequests();
 
     if (
-      this.request.user.dataProviderGhostfolioDailyRequests > maxDailyRequests
+      this.request.user.dataProviderCryptfolioDailyRequests > maxDailyRequests
     ) {
       throw new HttpException(
         getReasonPhrase(StatusCodes.TOO_MANY_REQUESTS),
@@ -142,14 +142,14 @@ export class GhostfolioController {
     }
 
     try {
-      const historicalData = await this.ghostfolioService.getHistorical({
+      const historicalData = await this.cryptfolioService.getHistorical({
         symbol,
         from: parseDate(query.from),
         granularity: query.granularity,
         to: parseDate(query.to)
       });
 
-      await this.ghostfolioService.incrementDailyRequests({
+      await this.cryptfolioService.incrementDailyRequests({
         userId: this.request.user.id
       });
 
@@ -163,7 +163,7 @@ export class GhostfolioController {
   }
 
   @Get('lookup')
-  @HasPermission(permissions.enableDataProviderGhostfolio)
+  @HasPermission(permissions.enableDataProviderCryptfolio)
   @UseGuards(AuthGuard('api-key'), HasPermissionGuard)
   @Version('2')
   public async lookupSymbol(
@@ -171,10 +171,10 @@ export class GhostfolioController {
     @Query('query') query = ''
   ): Promise<LookupResponse> {
     const includeIndices = includeIndicesParam === 'true';
-    const maxDailyRequests = await this.ghostfolioService.getMaxDailyRequests();
+    const maxDailyRequests = await this.cryptfolioService.getMaxDailyRequests();
 
     if (
-      this.request.user.dataProviderGhostfolioDailyRequests > maxDailyRequests
+      this.request.user.dataProviderCryptfolioDailyRequests > maxDailyRequests
     ) {
       throw new HttpException(
         getReasonPhrase(StatusCodes.TOO_MANY_REQUESTS),
@@ -183,14 +183,14 @@ export class GhostfolioController {
     }
 
     try {
-      const result = await this.ghostfolioService.lookup({
+      const result = await this.cryptfolioService.lookup({
         includeIndices,
         query: isISIN(query.toUpperCase())
           ? query.toUpperCase()
           : query.toLowerCase()
       });
 
-      await this.ghostfolioService.incrementDailyRequests({
+      await this.cryptfolioService.incrementDailyRequests({
         userId: this.request.user.id
       });
 
@@ -204,16 +204,16 @@ export class GhostfolioController {
   }
 
   @Get('quotes')
-  @HasPermission(permissions.enableDataProviderGhostfolio)
+  @HasPermission(permissions.enableDataProviderCryptfolio)
   @UseGuards(AuthGuard('api-key'), HasPermissionGuard)
   @Version('2')
   public async getQuotes(
     @Query() query: GetQuotesDto
   ): Promise<QuotesResponse> {
-    const maxDailyRequests = await this.ghostfolioService.getMaxDailyRequests();
+    const maxDailyRequests = await this.cryptfolioService.getMaxDailyRequests();
 
     if (
-      this.request.user.dataProviderGhostfolioDailyRequests > maxDailyRequests
+      this.request.user.dataProviderCryptfolioDailyRequests > maxDailyRequests
     ) {
       throw new HttpException(
         getReasonPhrase(StatusCodes.TOO_MANY_REQUESTS),
@@ -222,11 +222,11 @@ export class GhostfolioController {
     }
 
     try {
-      const quotes = await this.ghostfolioService.getQuotes({
+      const quotes = await this.cryptfolioService.getQuotes({
         symbols: query.symbols
       });
 
-      await this.ghostfolioService.incrementDailyRequests({
+      await this.cryptfolioService.incrementDailyRequests({
         userId: this.request.user.id
       });
 
@@ -240,10 +240,10 @@ export class GhostfolioController {
   }
 
   @Get('status')
-  @HasPermission(permissions.enableDataProviderGhostfolio)
+  @HasPermission(permissions.enableDataProviderCryptfolio)
   @UseGuards(AuthGuard('api-key'), HasPermissionGuard)
   @Version('2')
-  public async getStatus(): Promise<DataProviderGhostfolioStatusResponse> {
-    return this.ghostfolioService.getStatus({ user: this.request.user });
+  public async getStatus(): Promise<DataProviderCryptfolioStatusResponse> {
+    return this.cryptfolioService.getStatus({ user: this.request.user });
   }
 }

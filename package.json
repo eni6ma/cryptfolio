@@ -1,9 +1,9 @@
 {
-  "name": "ghostfolio",
+  "name": "cryptfolio",
   "version": "2.217.0",
   "homepage": "https://ghostfol.io",
   "license": "AGPL-3.0",
-  "repository": "https://github.com/ghostfolio/ghostfolio",
+  "repository": "https://github.com/cryptfolio/cryptfolio",
   "scripts": {
     "affected": "nx affected",
     "affected:apps": "nx affected:apps",

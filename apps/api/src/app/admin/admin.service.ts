@@ -870,7 +870,7 @@ export class AdminService {
           select: {
             activityCount: true,
             country: true,
-            dataProviderGhostfolioDailyRequests: true,
+            dataProviderCryptfolioDailyRequests: true,
             updatedAt: true
           }
         },
@@ -914,7 +914,7 @@ export class AdminService {
           accountCount: _count.accounts || 0,
           activityCount: _count.activities || 0,
           country: analytics?.country,
-          dailyApiRequests: analytics?.dataProviderGhostfolioDailyRequests || 0,
+          dailyApiRequests: analytics?.dataProviderCryptfolioDailyRequests || 0,
           lastActivity: analytics?.updatedAt
         };
       }
